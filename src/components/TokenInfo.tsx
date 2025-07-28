@@ -9,11 +9,11 @@ const TokenInfo = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Токен <span className="bg-gradient-pride bg-clip-text text-transparent">PRIDE</span>
+            <span className="bg-gradient-pride bg-clip-text text-transparent">PRIDE</span> Token
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            ERC-20 токен, который вознаграждает пользователей за активность в социальной сети 
-            и создает экономику инклюзивности.
+            An ERC-20 token that rewards users for social network activity 
+            and creates an economy of inclusivity.
           </p>
         </div>
 
@@ -56,12 +56,12 @@ const TokenInfo = () => {
                 <div className="p-2 bg-pride-red/20 rounded-lg mr-4">
                   <Coins className="h-6 w-6 text-pride-red" />
                 </div>
-                <CardTitle className="text-xl">Система наград</CardTitle>
+                <CardTitle className="text-xl">Reward System</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Получайте токены PRIDE за лайки, посты, репосты и активное участие в сообществе. 
-                  Чем больше вы взаимодействуете, тем больше зарабатываете.
+                  Earn PRIDE tokens for likes, posts, reposts and active community participation. 
+                  The more you engage, the more you earn.
                 </p>
               </CardContent>
             </Card>
@@ -71,12 +71,12 @@ const TokenInfo = () => {
                 <div className="p-2 bg-pride-blue/20 rounded-lg mr-4">
                   <TrendingUp className="h-6 w-6 text-pride-blue" />
                 </div>
-                <CardTitle className="text-xl">Растущая стоимость</CardTitle>
+                <CardTitle className="text-xl">Growing Value</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Ограниченная эмиссия и растущее сообщество создают дефляционную модель, 
-                  способствующую росту стоимости токена.
+                  Limited emission and growing community create a deflationary model, 
+                  contributing to token value growth.
                 </p>
               </CardContent>
             </Card>
@@ -86,12 +86,12 @@ const TokenInfo = () => {
                 <div className="p-2 bg-pride-green/20 rounded-lg mr-4">
                   <Shield className="h-6 w-6 text-pride-green" />
                 </div>
-                <CardTitle className="text-xl">Безопасность</CardTitle>
+                <CardTitle className="text-xl">Security</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Аудированный смарт-контракт на блокчейне Polygon обеспечивает полную 
-                  прозрачность и безопасность всех транзакций.
+                  Audited smart contract on Polygon blockchain ensures complete 
+                  transparency and security of all transactions.
                 </p>
               </CardContent>
             </Card>
@@ -101,12 +101,12 @@ const TokenInfo = () => {
                 <div className="p-2 bg-pride-purple/20 rounded-lg mr-4">
                   <Globe className="h-6 w-6 text-pride-purple" />
                 </div>
-                <CardTitle className="text-xl">Глобальность</CardTitle>
+                <CardTitle className="text-xl">Global Access</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Торгуется на децентрализованных биржах, обменивается на популярные криптовалюты, 
-                  доступен пользователям по всему миру.
+                  Traded on decentralized exchanges, exchangeable for popular cryptocurrencies, 
+                  accessible to users worldwide.
                 </p>
               </CardContent>
             </Card>

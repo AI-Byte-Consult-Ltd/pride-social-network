@@ -38,8 +38,8 @@ const Hero = () => {
               <span className="text-foreground">Social Network</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Первая Web3 социальная сеть, где инклюзивность встречается с инновациями. 
-              Зарабатывайте токены PRIDE за активность и будьте частью революции.
+              The first Web3 social network where inclusivity meets innovation. 
+              Earn PRIDE tokens for activity and be part of the revolution.
             </p>
           </div>
 
@@ -49,7 +49,7 @@ const Hero = () => {
               <div className="flex flex-col items-center space-y-2">
                 <Heart className="w-8 h-8 text-pride-red" />
                 <div className="text-2xl font-bold text-foreground">10K+</div>
-                <div className="text-sm text-muted-foreground">Лайков</div>
+                <div className="text-sm text-muted-foreground">Likes</div>
               </div>
             </Card>
             
@@ -57,7 +57,7 @@ const Hero = () => {
               <div className="flex flex-col items-center space-y-2">
                 <Users className="w-8 h-8 text-pride-blue" />
                 <div className="text-2xl font-bold text-foreground">5K+</div>
-                <div className="text-sm text-muted-foreground">Пользователей</div>
+                <div className="text-sm text-muted-foreground">Users</div>
               </div>
             </Card>
             
@@ -65,7 +65,7 @@ const Hero = () => {
               <div className="flex flex-col items-center space-y-2">
                 <Coins className="w-8 h-8 text-pride-purple" />
                 <div className="text-2xl font-bold text-foreground">1M+</div>
-                <div className="text-sm text-muted-foreground">PRIDE токенов</div>
+                <div className="text-sm text-muted-foreground">PRIDE tokens</div>
               </div>
             </Card>
             
@@ -73,7 +73,7 @@ const Hero = () => {
               <div className="flex flex-col items-center space-y-2">
                 <Wallet className="w-8 h-8 text-pride-green" />
                 <div className="text-2xl font-bold text-foreground">Web3</div>
-                <div className="text-sm text-muted-foreground">Кошельки</div>
+                <div className="text-sm text-muted-foreground">Wallets</div>
               </div>
             </Card>
           </div>
@@ -82,10 +82,10 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="pride" size="lg" className="text-lg px-8 py-6">
               <Wallet className="mr-2 h-5 w-5" />
-              Подключить кошелёк
+              Connect Wallet
             </Button>
             <Button variant="wallet" size="lg" className="text-lg px-8 py-6">
-              Узнать больше
+              Learn More
             </Button>
           </div>
         </div>

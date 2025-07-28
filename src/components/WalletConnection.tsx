@@ -20,8 +20,8 @@ const WalletConnection = () => {
       setWalletAddress("0x742d35Cc6634C0532925a3b8D6aE9d8fe3E");
       setIsConnecting(false);
       toast({
-        title: "Кошелёк подключен!",
-        description: "MetaMask успешно подключен к Pride Social Network",
+        title: "Wallet Connected!",
+        description: "MetaMask successfully connected to Pride Social Network",
       });
     }, 2000);
   };
@@ -30,16 +30,16 @@ const WalletConnection = () => {
     setIsConnected(false);
     setWalletAddress("");
     toast({
-      title: "Кошелёк отключен",
-      description: "MetaMask отключен от Pride Social Network",
+      title: "Wallet Disconnected",
+      description: "MetaMask disconnected from Pride Social Network",
     });
   };
 
   const copyAddress = () => {
     navigator.clipboard.writeText(walletAddress);
     toast({
-      title: "Адрес скопирован",
-      description: "Адрес кошелька скопирован в буфер обмена",
+      title: "Address Copied",
+      description: "Wallet address copied to clipboard",
     });
   };
 
@@ -48,10 +48,10 @@ const WalletConnection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Подключение <span className="bg-gradient-web3 bg-clip-text text-transparent">кошелька</span>
+            <span className="bg-gradient-web3 bg-clip-text text-transparent">Wallet</span> Connection
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Подключите свой Web3 кошелёк для получения токенов PRIDE и участия в экономике сети.
+            Connect your Web3 wallet to receive PRIDE tokens and participate in the network economy.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ const WalletConnection = () => {
                 <Wallet className="w-8 h-8 text-foreground" />
               </div>
               <CardTitle className="text-2xl">
-                {isConnected ? "Кошелёк подключен" : "Подключите кошелёк"}
+                {isConnected ? "Wallet Connected" : "Connect Wallet"}
               </CardTitle>
             </CardHeader>
             
@@ -71,7 +71,7 @@ const WalletConnection = () => {
                 <div className="space-y-6">
                   <div className="text-center space-y-4">
                     <p className="text-muted-foreground">
-                      Для начала работы с Pride Social Network подключите кошелёк MetaMask
+                      To start using Pride Social Network, connect your MetaMask wallet
                     </p>
                     
                     <div className="flex flex-wrap gap-2 justify-center">
@@ -94,21 +94,21 @@ const WalletConnection = () => {
                     disabled={isConnecting}
                     className="w-full text-lg py-6"
                   >
-                    {isConnecting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-foreground mr-2" />
-                        Подключение...
-                      </>
-                    ) : (
-                      <>
-                        <Wallet className="mr-2 h-5 w-5" />
-                        Подключить MetaMask
-                      </>
-                    )}
+                      {isConnecting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-foreground mr-2" />
+                          Connecting...
+                        </>
+                      ) : (
+                        <>
+                          <Wallet className="mr-2 h-5 w-5" />
+                          Connect MetaMask
+                        </>
+                      )}
                   </Button>
 
                   <div className="text-center text-sm text-muted-foreground">
-                    <p>Нет кошелька? <a href="https://metamask.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Установить MetaMask</a></p>
+                    <p>Don't have a wallet? <a href="https://metamask.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Install MetaMask</a></p>
                   </div>
                 </div>
               ) : (
@@ -118,7 +118,7 @@ const WalletConnection = () => {
                       <CheckCircle className="w-8 h-8 text-pride-green" />
                     </div>
                     <p className="text-muted-foreground mb-4">
-                      Кошелёк успешно подключен к Pride Social Network
+                      Wallet successfully connected to Pride Social Network
                     </p>
                   </div>
 
@@ -126,7 +126,7 @@ const WalletConnection = () => {
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm text-muted-foreground">Адрес кошелька</p>
+                          <p className="text-sm text-muted-foreground">Wallet Address</p>
                           <p className="font-mono text-sm">{walletAddress}...</p>
                         </div>
                         <Button 
@@ -142,13 +142,13 @@ const WalletConnection = () => {
 
                   <div className="flex gap-4">
                     <Button variant="web3" className="flex-1">
-                      Открыть дашборд
+                      Open Dashboard
                     </Button>
                     <Button 
                       variant="outline" 
                       onClick={disconnectWallet}
                     >
-                      Отключить
+                      Disconnect
                     </Button>
                   </div>
                 </div>
@@ -158,10 +158,10 @@ const WalletConnection = () => {
                 <div className="flex items-start space-x-3">
                   <AlertCircle className="h-5 w-5 text-pride-yellow mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-muted-foreground">
-                    <p className="font-medium mb-1">Безопасность</p>
+                    <p className="font-medium mb-1">Security</p>
                     <p>
-                      Мы никогда не запрашиваем seed фразы или приватные ключи. 
-                      Храните их в безопасности и никому не передавайте.
+                      We never ask for seed phrases or private keys. 
+                      Keep them safe and never share them with anyone.
                     </p>
                   </div>
                 </div>

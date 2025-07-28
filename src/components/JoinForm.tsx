@@ -20,8 +20,8 @@ const JoinForm = () => {
     
     if (!email || !agreed) {
       toast({
-        title: "Ошибка",
-        description: "Пожалуйста, заполните все поля и примите условия",
+        title: "Error",
+        description: "Please fill in all fields and accept the terms",
         variant: "destructive"
       });
       return;
@@ -34,8 +34,8 @@ const JoinForm = () => {
       setIsSubmitted(true);
       setIsSubmitting(false);
       toast({
-        title: "Добро пожаловать!",
-        description: "Вы успешно присоединились к Pride Social Network",
+        title: "Welcome!",
+        description: "You have successfully joined Pride Social Network",
       });
     }, 2000);
   };
@@ -43,18 +43,18 @@ const JoinForm = () => {
   const benefits = [
     {
       icon: Gift,
-      title: "Ранний доступ",
-      description: "Получите доступ к платформе до официального запуска"
+      title: "Early Access",
+      description: "Get access to the platform before the official launch"
     },
     {
       icon: Sparkles,
-      title: "Бонусные токены",
-      description: "100 PRIDE токенов в подарок при регистрации"
+      title: "Bonus Tokens",
+      description: "100 PRIDE tokens as a gift upon registration"
     },
     {
       icon: Users,
-      title: "VIP статус",
-      description: "Особый статус в сообществе первых пользователей"
+      title: "VIP Status",
+      description: "Special status in the early adopters community"
     }
   ];
 
@@ -69,13 +69,13 @@ const JoinForm = () => {
                   <Sparkles className="w-10 h-10 text-pride-green" />
                 </div>
                 <h2 className="text-3xl font-bold mb-4">
-                  Добро пожаловать в <span className="bg-gradient-pride bg-clip-text text-transparent">Pride!</span>
+                  Welcome to <span className="bg-gradient-pride bg-clip-text text-transparent">Pride!</span>
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  Спасибо за присоединение к Pride Social Network! Мы отправили вам письмо с дальнейшими инструкциями.
+                  Thank you for joining Pride Social Network! We have sent you an email with further instructions.
                 </p>
                 <Badge className="bg-pride-purple/20 text-pride-purple border-pride-purple/30 text-lg px-4 py-2">
-                  100 PRIDE токенов зарезервированы для вас!
+                  100 PRIDE tokens reserved for you!
                 </Badge>
               </CardContent>
             </Card>
@@ -90,11 +90,11 @@ const JoinForm = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Присоединяйтесь к <span className="bg-gradient-pride bg-clip-text text-transparent">революции</span>
+            Join the <span className="bg-gradient-pride bg-clip-text text-transparent">Revolution</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Станьте частью первой Web3 социальной сети для LGBTQ+ сообщества. 
-            Получите ранний доступ и бонусные токены!
+            Become part of the first Web3 social network for the LGBTQ+ community. 
+            Get early access and bonus tokens!
           </p>
         </div>
 
@@ -102,7 +102,7 @@ const JoinForm = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Benefits */}
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold mb-8">Преимущества раннего доступа</h3>
+              <h3 className="text-2xl font-bold mb-8">Early Access Benefits</h3>
               
               {benefits.map((benefit, index) => {
                 const IconComponent = benefit.icon;
@@ -129,13 +129,13 @@ const JoinForm = () => {
               <div className="mt-8 p-6 bg-gradient-pride/10 rounded-lg border border-primary/20">
                 <div className="flex items-center space-x-3 mb-3">
                   <Users className="h-5 w-5 text-primary" />
-                  <span className="font-semibold">Уже присоединились:</span>
+                  <span className="font-semibold">Already joined:</span>
                 </div>
                 <div className="text-3xl font-bold bg-gradient-pride bg-clip-text text-transparent">
-                  4,327 пользователей
+                  4,327 users
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Присоединяйтесь к растущему сообществу!
+                  Join the growing community!
                 </p>
               </div>
             </div>
@@ -146,13 +146,13 @@ const JoinForm = () => {
                 <div className="w-16 h-16 bg-gradient-pride rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-8 h-8 text-foreground" />
                 </div>
-                <CardTitle className="text-2xl">Получить ранний доступ</CardTitle>
+                <CardTitle className="text-2xl">Get Early Access</CardTitle>
               </CardHeader>
               
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email адрес</Label>
+                    <Label htmlFor="email">Email Address</Label>
                     <Input
                       id="email"
                       type="email"
@@ -173,14 +173,14 @@ const JoinForm = () => {
                     />
                     <div className="text-sm text-muted-foreground">
                       <label htmlFor="terms" className="cursor-pointer">
-                        Я согласен получать уведомления о запуске Pride Social Network 
-                        и принимаю{" "}
+                        I agree to receive notifications about Pride Social Network launch 
+                        and accept the{" "}
                         <a href="#" className="text-primary hover:underline">
-                          пользовательское соглашение
+                          terms of service
                         </a>{" "}
-                        и{" "}
+                        and{" "}
                         <a href="#" className="text-primary hover:underline">
-                          политику конфиденциальности
+                          privacy policy
                         </a>
                       </label>
                     </div>
@@ -196,21 +196,21 @@ const JoinForm = () => {
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-foreground mr-2" />
-                        Присоединяемся...
+                        Joining...
                       </>
                     ) : (
                       <>
                         <Sparkles className="mr-2 h-5 w-5" />
-                        Присоединиться к Pride
+                        Join Pride
                       </>
                     )}
                   </Button>
 
                   <div className="text-center text-sm text-muted-foreground">
                     <p>
-                      Нет спама, только важные обновления о запуске платформы.
+                      No spam, only important updates about platform launch.
                       <br />
-                      Отписаться можно в любое время.
+                      You can unsubscribe at any time.
                     </p>
                   </div>
                 </form>

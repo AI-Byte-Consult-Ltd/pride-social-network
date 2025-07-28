@@ -3,10 +3,10 @@ import { Heart, Twitter, Github, MessageCircle } from "lucide-react";
 const Footer = () => {
   const links = {
     product: [
-      { name: "Особенности", href: "#features" },
-      { name: "Токен PRIDE", href: "#token" },
-      { name: "Дашборд", href: "#dashboard" },
-      { name: "Безопасность", href: "#security" }
+      { name: "Features", href: "#features" },
+      { name: "PRIDE Token", href: "#token" },
+      { name: "Dashboard", href: "#dashboard" },
+      { name: "Security", href: "#security" }
     ],
     community: [
       { name: "Discord", href: "#discord" },
@@ -16,13 +16,13 @@ const Footer = () => {
     ],
     resources: [
       { name: "FAQ", href: "#faq" },
-      { name: "Документация", href: "#docs" },
-      { name: "Поддержка", href: "#support" },
+      { name: "Documentation", href: "#docs" },
+      { name: "Support", href: "#support" },
       { name: "API", href: "#api" }
     ],
     legal: [
-      { name: "Политика конфиденциальности", href: "#privacy" },
-      { name: "Условия использования", href: "#terms" },
+      { name: "Privacy Policy", href: "#privacy" },
+      { name: "Terms of Service", href: "#terms" },
       { name: "Cookie Policy", href: "#cookies" }
     ]
   };
@@ -39,8 +39,8 @@ const Footer = () => {
                 Pride Social Network
               </h3>
               <p className="text-muted-foreground max-w-md">
-                Первая Web3 социальная сеть для LGBTQ+ сообщества. 
-                Зарабатывайте токены PRIDE за активность и будьте частью инклюзивного будущего.
+                The first Web3 social network for the LGBTQ+ community. 
+                Earn PRIDE tokens for activity and be part of an inclusive future.
               </p>
             </div>
             
@@ -66,13 +66,13 @@ const Footer = () => {
             </div>
 
             <div className="text-sm text-muted-foreground">
-              <p>🏳️‍🌈 Создано с любовью для инклюзивного сообщества</p>
+              <p>🏳️‍🌈 Made with love for an inclusive community</p>
             </div>
           </div>
 
           {/* Links Sections */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Продукт</h4>
+            <h4 className="font-semibold text-foreground mb-4">Product</h4>
             <ul className="space-y-3">
               {links.product.map((link) => (
                 <li key={link.name}>
@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Сообщество</h4>
+            <h4 className="font-semibold text-foreground mb-4">Community</h4>
             <ul className="space-y-3">
               {links.community.map((link) => (
                 <li key={link.name}>
@@ -104,7 +104,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Ресурсы</h4>
+            <h4 className="font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-3">
               {links.resources.map((link) => (
                 <li key={link.name}>
@@ -123,18 +123,18 @@ const Footer = () => {
         {/* Newsletter Section */}
         <div className="bg-gradient-card rounded-lg p-8 mb-12 border border-primary/20">
           <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold mb-2">Оставайтесь в курсе</h3>
+            <h3 className="text-xl font-bold mb-2">Stay Updated</h3>
             <p className="text-muted-foreground mb-6">
-              Подпишитесь на обновления и получайте новости о развитии Pride Social Network
+              Subscribe to updates and get news about Pride Social Network development
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input 
                 type="email" 
-                placeholder="Ваш email"
+                placeholder="Your email"
                 className="flex-1 px-4 py-2 bg-muted/40 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <button className="px-6 py-2 bg-gradient-pride text-foreground rounded-lg hover:shadow-glow transition-all duration-300">
-                Подписаться
+                Subscribe
               </button>
             </div>
           </div>
@@ -145,7 +145,7 @@ const Footer = () => {
           <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-4 md:mb-0">
             <span>© 2024 Pride Social Network.</span>
             <Heart className="h-4 w-4 text-pride-red" />
-            <span>Создано для инклюзивности.</span>
+            <span>Made for inclusivity.</span>
           </div>
           
           <div className="flex space-x-6">

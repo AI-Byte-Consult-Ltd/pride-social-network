@@ -8,45 +8,45 @@ const RewardSystem = () => {
   const rewards = [
     {
       icon: Heart,
-      action: "Лайк поста",
+      action: "Like Post",
       amount: "0.1 PRIDE",
       color: "pride-red",
-      description: "За каждый лайк контента других пользователей"
+      description: "For each like of other users' content"
     },
     {
       icon: MessageCircle,
-      action: "Комментарий",
+      action: "Comment",
       amount: "0.5 PRIDE",
       color: "pride-blue",
-      description: "За содержательные комментарии"
+      description: "For meaningful comments"
     },
     {
       icon: Repeat2,
-      action: "Репост",
+      action: "Repost",
       amount: "0.3 PRIDE",
       color: "pride-green",
-      description: "За распространение качественного контента"
+      description: "For sharing quality content"
     },
     {
       icon: Share,
-      action: "Создание поста",
+      action: "Create Post",
       amount: "1.0 PRIDE",
       color: "pride-purple",
-      description: "За оригинальный контент и посты"
+      description: "For original content and posts"
     },
     {
       icon: Gift,
-      action: "Ежедневный бонус",
+      action: "Daily Bonus",
       amount: "2.0 PRIDE",
       color: "pride-orange",
-      description: "За ежедневную активность в сети"
+      description: "For daily network activity"
     },
     {
       icon: Trophy,
-      action: "Достижения",
-      amount: "до 50 PRIDE",
+      action: "Achievements",
+      amount: "up to 50 PRIDE",
       color: "pride-yellow",
-      description: "За особые достижения и вехи"
+      description: "For special achievements and milestones"
     }
   ];
 
@@ -68,11 +68,11 @@ const RewardSystem = () => {
       <div className="relative container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Система <span className="bg-gradient-pride bg-clip-text text-transparent">наград</span>
+            <span className="bg-gradient-pride bg-clip-text text-transparent">Reward</span> System
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Зарабатывайте токены PRIDE за активное участие в сообществе. 
-            Каждое действие в сети приносит вам вознаграждение.
+            Earn PRIDE tokens for active community participation. 
+            Every action in the network brings you rewards.
           </p>
         </div>
 
@@ -80,19 +80,19 @@ const RewardSystem = () => {
         <div className="max-w-2xl mx-auto mb-16">
           <Card className="bg-gradient-card border-primary/20 shadow-glow">
             <CardHeader>
-              <CardTitle className="text-center">Ваш прогресс сегодня</CardTitle>
+              <CardTitle className="text-center">Your Progress Today</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">Заработано сегодня</span>
+                <span className="text-sm text-muted-foreground">Earned Today</span>
                 <Badge variant="secondary" className="bg-pride-purple/20 text-pride-purple border-pride-purple/30">
                   15.7 PRIDE
                 </Badge>
               </div>
               <Progress value={65} className="h-3" />
               <div className="flex justify-between text-sm text-muted-foreground">
-                <span>Цель: 25 PRIDE</span>
-                <span>65% выполнено</span>
+                <span>Goal: 25 PRIDE</span>
+                <span>65% complete</span>
               </div>
             </CardContent>
           </Card>
@@ -135,7 +135,7 @@ const RewardSystem = () => {
         <div className="mt-16">
           <Card className="bg-gradient-card border-primary/20 shadow-pride">
             <CardHeader>
-              <CardTitle className="text-center text-2xl">Бонусные множители</CardTitle>
+              <CardTitle className="text-center text-2xl">Bonus Multipliers</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-3 gap-6 text-center">
@@ -143,27 +143,27 @@ const RewardSystem = () => {
                   <div className="text-3xl font-bold bg-gradient-pride bg-clip-text text-transparent mb-2">
                     x2
                   </div>
-                  <h4 className="font-semibold mb-2">Выходные</h4>
+                  <h4 className="font-semibold mb-2">Weekends</h4>
                   <p className="text-sm text-muted-foreground">
-                    Удвоенные награды в выходные дни
+                    Double rewards on weekends
                   </p>
                 </div>
                 <div>
                   <div className="text-3xl font-bold bg-gradient-web3 bg-clip-text text-transparent mb-2">
                     x3
                   </div>
-                  <h4 className="font-semibold mb-2">Особые события</h4>
+                  <h4 className="font-semibold mb-2">Special Events</h4>
                   <p className="text-sm text-muted-foreground">
-                    Тройные награды во время праздников Pride
+                    Triple rewards during Pride celebrations
                   </p>
                 </div>
                 <div>
                   <div className="text-3xl font-bold bg-gradient-pride bg-clip-text text-transparent mb-2">
                     x5
                   </div>
-                  <h4 className="font-semibold mb-2">Первые пользователи</h4>
+                  <h4 className="font-semibold mb-2">Early Users</h4>
                   <p className="text-sm text-muted-foreground">
-                    Первые 1000 пользователей получают x5 множитель
+                    First 1000 users get x5 multiplier
                   </p>
                 </div>
               </div>

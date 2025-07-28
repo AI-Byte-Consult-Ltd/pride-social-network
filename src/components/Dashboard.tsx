@@ -16,65 +16,65 @@ const Dashboard = () => {
   const recentTransactions = [
     {
       type: "earn",
-      action: "Лайк поста",
+      action: "Post Like",
       amount: "+0.1 PRIDE",
-      time: "2 мин назад",
+      time: "2 min ago",
       user: "@alex_pride"
     },
     {
       type: "earn",
-      action: "Создание поста",
+      action: "Post Creation",
       amount: "+1.0 PRIDE",
-      time: "15 мин назад",
-      user: "Вы"
+      time: "15 min ago",
+      user: "You"
     },
     {
       type: "earn",
-      action: "Комментарий",
+      action: "Comment",
       amount: "+0.5 PRIDE",
-      time: "1 час назад",
-      user: "Вы"
+      time: "1 hour ago",
+      user: "You"
     },
     {
       type: "spend",
-      action: "Донат сообществу",
+      action: "Community Donation",
       amount: "-5.0 PRIDE",
-      time: "2 часа назад",
-      user: "Вы"
+      time: "2 hours ago",
+      user: "You"
     },
     {
       type: "earn",
-      action: "Ежедневный бонус",
+      action: "Daily Bonus",
       amount: "+2.0 PRIDE",
-      time: "1 день назад",
-      user: "Система"
+      time: "1 day ago",
+      user: "System"
     }
   ];
 
   const stats = [
     {
-      title: "Общий баланс",
+      title: "Total Balance",
       value: "127.45 PRIDE",
       change: "+12.5%",
       positive: true,
       icon: Wallet
     },
     {
-      title: "Заработано сегодня",
+      title: "Earned Today",
       value: "15.7 PRIDE",
-      change: "+8 действий",
+      change: "+8 actions",
       positive: true,
       icon: TrendingUp
     },
     {
-      title: "Этот месяц",
+      title: "This Month",
       value: "289.2 PRIDE",
       change: "+23.1%",
       positive: true,
       icon: Calendar
     },
     {
-      title: "Среднее в день",
+      title: "Daily Average",
       value: "9.6 PRIDE",
       change: "-2.1%",
       positive: false,
@@ -87,10 +87,10 @@ const Dashboard = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Ваш <span className="bg-gradient-web3 bg-clip-text text-transparent">дашборд</span>
+            Your <span className="bg-gradient-web3 bg-clip-text text-transparent">Dashboard</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Отслеживайте баланс токенов PRIDE, историю транзакций и статистику активности.
+            Track your PRIDE token balance, transaction history and activity statistics.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ const Dashboard = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Coins className="h-5 w-5 text-primary" />
-                Баланс кошелька
+                Wallet Balance
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -156,17 +156,17 @@ const Dashboard = () => {
 
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>До следующего уровня</span>
+                  <span>To Next Level</span>
                   <span>73%</span>
                 </div>
                 <Progress value={73} className="h-2" />
                 <div className="text-xs text-muted-foreground text-center">
-                  27 PRIDE до Gold статуса
+                  27 PRIDE to Gold status
                 </div>
               </div>
 
               <Button variant="pride" className="w-full">
-                Вывести средства
+                Withdraw Funds
               </Button>
             </CardContent>
           </Card>
@@ -174,7 +174,7 @@ const Dashboard = () => {
           {/* Transaction History */}
           <Card className="lg:col-span-2 bg-gradient-card border-primary/20">
             <CardHeader>
-              <CardTitle>История транзакций</CardTitle>
+              <CardTitle>Transaction History</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -214,7 +214,7 @@ const Dashboard = () => {
               </div>
               
               <Button variant="outline" className="w-full mt-6">
-                Посмотреть все транзакции
+                View All Transactions
               </Button>
             </CardContent>
           </Card>
@@ -223,40 +223,40 @@ const Dashboard = () => {
         {/* Achievement Progress */}
         <Card className="mt-8 bg-gradient-card border-primary/20 shadow-glow">
           <CardHeader>
-            <CardTitle>Достижения и цели</CardTitle>
+            <CardTitle>Achievements and Goals</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>Социальная активность</span>
-                  <span>8/10 действий</span>
+                  <span>Social Activity</span>
+                  <span>8/10 actions</span>
                 </div>
                 <Progress value={80} className="h-2" />
                 <div className="text-xs text-muted-foreground">
-                  Награда: 5 PRIDE
+                  Reward: 5 PRIDE
                 </div>
               </div>
               
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>Ежедневные задания</span>
-                  <span>3/5 выполнено</span>
+                  <span>Daily Tasks</span>
+                  <span>3/5 completed</span>
                 </div>
                 <Progress value={60} className="h-2" />
                 <div className="text-xs text-muted-foreground">
-                  Награда: 10 PRIDE
+                  Reward: 10 PRIDE
                 </div>
               </div>
               
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>Недельная цель</span>
+                  <span>Weekly Goal</span>
                   <span>67/100 PRIDE</span>
                 </div>
                 <Progress value={67} className="h-2" />
                 <div className="text-xs text-muted-foreground">
-                  Награда: 25 PRIDE бонус
+                  Reward: 25 PRIDE bonus
                 </div>
               </div>
             </div>

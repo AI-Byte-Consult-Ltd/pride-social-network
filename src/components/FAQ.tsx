@@ -10,86 +10,86 @@ import { Shield, Coins, Globe, Lock } from "lucide-react";
 const FAQ = () => {
   const faqCategories = [
     {
-      title: "Web3 и блокчейн",
+      title: "Web3 & Blockchain",
       icon: Globe,
       color: "pride-blue",
       questions: [
         {
-          question: "Что такое Web3 и как это связано с Pride Social Network?",
-          answer: "Web3 — это новое поколение интернета, основанное на блокчейн-технологиях. Pride Social Network использует Web3 для создания децентрализованной социальной сети, где пользователи владеют своими данными и получают справедливое вознаграждение за активность."
+          question: "What is Web3 and how does it relate to Pride Social Network?",
+          answer: "Web3 is the new generation of the internet, based on blockchain technologies. Pride Social Network uses Web3 to create a decentralized social network where users own their data and receive fair rewards for activity."
         },
         {
-          question: "Что такое блокчейн и почему он важен?",
-          answer: "Блокчейн — это распределённая база данных, которая обеспечивает прозрачность, безопасность и неизменность записей. В нашей сети он гарантирует честное распределение токенов и защиту от мошенничества."
+          question: "What is blockchain and why is it important?",
+          answer: "Blockchain is a distributed database that ensures transparency, security and immutability of records. In our network, it guarantees fair token distribution and protection against fraud."
         },
         {
-          question: "Нужно ли знать технические детали для использования платформы?",
-          answer: "Нет! Мы создали интуитивно понятный интерфейс. Вам нужно только подключить кошелёк — всё остальное работает как в обычной социальной сети."
+          question: "Do I need to know technical details to use the platform?",
+          answer: "No! We've created an intuitive interface. You only need to connect your wallet — everything else works like a regular social network."
         }
       ]
     },
     {
-      title: "ERC-20 токены",
+      title: "ERC-20 Tokens",
       icon: Coins,
       color: "pride-purple",
       questions: [
         {
-          question: "Что такое ERC-20 токен PRIDE?",
-          answer: "ERC-20 — это стандартный формат токенов на блокчейне Ethereum. PRIDE — наш токен, который вы получаете за активность в сети. Его можно хранить в любом кошельке, поддерживающем ERC-20."
+          question: "What is the ERC-20 PRIDE token?",
+          answer: "ERC-20 is a standard token format on the Ethereum blockchain. PRIDE is our token that you receive for network activity. It can be stored in any wallet that supports ERC-20."
         },
         {
-          question: "Как я могу использовать токены PRIDE?",
-          answer: "Токены PRIDE можно обменять на другие криптовалюты, использовать для получения премиум-функций в сети, участвовать в голосованиях сообщества или просто держать как инвестицию."
+          question: "How can I use PRIDE tokens?",
+          answer: "PRIDE tokens can be exchanged for other cryptocurrencies, used to access premium network features, participate in community voting, or simply held as an investment."
         },
         {
-          question: "Ограничена ли эмиссия токенов PRIDE?",
-          answer: "Да, максимальное количество токенов PRIDE ограничено 100 миллионами. Это создаёт дефляционную модель и потенциал роста стоимости."
+          question: "Is PRIDE token emission limited?",
+          answer: "Yes, the maximum number of PRIDE tokens is limited to 100 million. This creates a deflationary model and potential for value growth."
         },
         {
-          question: "На каких биржах торгуется PRIDE?",
-          answer: "PRIDE доступен на децентрализованных биржах как Uniswap и SushiSwap. Мы также работаем над листингом на централизованных биржах."
+          question: "On which exchanges is PRIDE traded?",
+          answer: "PRIDE is available on decentralized exchanges like Uniswap and SushiSwap. We're also working on listings on centralized exchanges."
         }
       ]
     },
     {
-      title: "Безопасность",
+      title: "Security",
       icon: Shield,
       color: "pride-green",
       questions: [
         {
-          question: "Насколько безопасны мои средства и данные?",
-          answer: "Ваши токены хранятся в вашем собственном кошельке, к которому только у вас есть доступ. Персональные данные шифруются и не передаются третьим лицам."
+          question: "How secure are my funds and data?",
+          answer: "Your tokens are stored in your own wallet, which only you have access to. Personal data is encrypted and not shared with third parties."
         },
         {
-          question: "Что делать, если я потерял доступ к кошельку?",
-          answer: "Сохраните seed-фразу в безопасном месте при создании кошелька. Только с её помощью можно восстановить доступ. Мы не можем помочь восстановить утерянные кошельки."
+          question: "What should I do if I lose access to my wallet?",
+          answer: "Save your seed phrase in a secure place when creating your wallet. Only with it can you restore access. We cannot help recover lost wallets."
         },
         {
-          question: "Проходили ли смарт-контракты аудит безопасности?",
-          answer: "Да, все наши смарт-контракты прошли независимый аудит ведущими компаниями в области блокчейн-безопасности. Результаты аудита публично доступны."
+          question: "Have the smart contracts undergone security audits?",
+          answer: "Yes, all our smart contracts have undergone independent audits by leading blockchain security companies. Audit results are publicly available."
         },
         {
-          question: "Как защититься от мошенников?",
-          answer: "Никогда не передавайте свою seed-фразу или приватные ключи. Мы никогда не запрашиваем эту информацию. Всегда проверяйте адреса контрактов на официальном сайте."
+          question: "How to protect yourself from scammers?",
+          answer: "Never share your seed phrase or private keys. We never ask for this information. Always verify contract addresses on the official website."
         }
       ]
     },
     {
-      title: "Приватность",
+      title: "Privacy",
       icon: Lock,
       color: "pride-red",
       questions: [
         {
-          question: "Какие данные собирает платформа?",
-          answer: "Мы собираем минимум данных: только публичный адрес кошелька и активность в сети. Никаких персональных данных, email или номеров телефонов не требуется."
+          question: "What data does the platform collect?",
+          answer: "We collect minimal data: only public wallet address and network activity. No personal data, email or phone numbers are required."
         },
         {
-          question: "Могу ли я оставаться анонимным?",
-          answer: "Да! Вы можете использовать платформу полностью анонимно. Никнейм и аватар — это всё, что видят другие пользователи."
+          question: "Can I remain anonymous?",
+          answer: "Yes! You can use the platform completely anonymously. Nickname and avatar are all that other users see."
         },
         {
-          question: "Передаёте ли вы данные третьим лицам?",
-          answer: "Нет, мы не продаём и не передаём пользовательские данные третьим лицам. Вся активность хранится в децентрализованном виде."
+          question: "Do you share data with third parties?",
+          answer: "No, we do not sell or share user data with third parties. All activity is stored in a decentralized manner."
         }
       ]
     }
@@ -100,10 +100,10 @@ const FAQ = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Часто задаваемые <span className="bg-gradient-pride bg-clip-text text-transparent">вопросы</span>
+            Frequently Asked <span className="bg-gradient-pride bg-clip-text text-transparent">Questions</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Всё, что нужно знать о Web3, токенах ERC-20 и безопасности в Pride Social Network.
+            Everything you need to know about Web3, ERC-20 tokens and security in Pride Social Network.
           </p>
         </div>
 
@@ -148,23 +148,23 @@ const FAQ = () => {
         {/* Additional help section */}
         <Card className="mt-12 bg-gradient-card border-primary/20 shadow-pride">
           <div className="p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Не нашли ответ на свой вопрос?</h3>
+            <h3 className="text-2xl font-bold mb-4">Didn't find an answer to your question?</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Наше сообщество и команда поддержки всегда готовы помочь. 
-              Присоединяйтесь к нашему Discord или отправьте нам сообщение.
+              Our community and support team are always ready to help. 
+              Join our Discord or send us a message.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="#" 
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-pride-blue/20 text-pride-blue border border-pride-blue/30 hover:bg-pride-blue/30 transition-colors"
               >
-                Присоединиться к Discord
+                Join Discord
               </a>
               <a 
                 href="#" 
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-pride-purple/20 text-pride-purple border border-pride-purple/30 hover:bg-pride-purple/30 transition-colors"
               >
-                Связаться с поддержкой
+                Contact Support
               </a>
             </div>
           </div>
