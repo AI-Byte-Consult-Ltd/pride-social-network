@@ -52,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				pride: {
+					red: 'hsl(var(--pride-red))',
+					orange: 'hsl(var(--pride-orange))',
+					yellow: 'hsl(var(--pride-yellow))',
+					green: 'hsl(var(--pride-green))',
+					blue: 'hsl(var(--pride-blue))',
+					purple: 'hsl(var(--pride-purple))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +70,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-pride': 'var(--gradient-pride)',
+				'gradient-web3': 'var(--gradient-web3)',
+				'gradient-card': 'var(--gradient-card)'
+			},
+			boxShadow: {
+				'pride': 'var(--shadow-pride)',
+				'glow': 'var(--shadow-glow)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
