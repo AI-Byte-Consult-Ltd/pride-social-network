@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       chat_logs: {
         Row: {
+          authenticated_user_id: string | null
           content: string | null
           created_at: string | null
           first_name: string | null
@@ -27,6 +28,7 @@ export type Database = {
           username: string | null
         }
         Insert: {
+          authenticated_user_id?: string | null
           content?: string | null
           created_at?: string | null
           first_name?: string | null
@@ -38,6 +40,7 @@ export type Database = {
           username?: string | null
         }
         Update: {
+          authenticated_user_id?: string | null
           content?: string | null
           created_at?: string | null
           first_name?: string | null
@@ -73,16 +76,19 @@ export type Database = {
       }
       followup_logs: {
         Row: {
+          authenticated_user_id: string | null
           id: string
           sent_at: string | null
           user_id: string | null
         }
         Insert: {
+          authenticated_user_id?: string | null
           id?: string
           sent_at?: string | null
           user_id?: string | null
         }
         Update: {
+          authenticated_user_id?: string | null
           id?: string
           sent_at?: string | null
           user_id?: string | null
@@ -107,6 +113,36 @@ export type Database = {
         }
         Relationships: []
       }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          email: string | null
+          first_name: string | null
+          id: string
+          last_name: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string | null
+          first_name?: string | null
+          id: string
+          last_name?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string | null
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -115,6 +151,10 @@ export type Database = {
       binary_quantize: {
         Args: { "": string } | { "": unknown }
         Returns: unknown
+      }
+      get_current_user_profile: {
+        Args: Record<PropertyKey, never>
+        Returns: string
       }
       halfvec_avg: {
         Args: { "": number[] }
