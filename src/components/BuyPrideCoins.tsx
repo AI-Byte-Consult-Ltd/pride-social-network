@@ -22,7 +22,7 @@ const BuyPrideCoins = () => {
       coinbase: "https://commerce.coinbase.com/checkout/83c1716b-c032-4e52-b7b5-efbc01cd57b3",
     },
     50: {
-      stripe: "https://buy.stripe.com/test_50usd_link",
+      stripe: "https://buy.stripe.com/eVq14m3Vk4vibuR9BjaVa0L",
       paypal: "https://www.paypal.com/pay?amount=50",
       coinbase: "https://commerce.coinbase.com/checkout/147565e8-9550-490d-abc7-99f47097b1f2",
     },
