@@ -4,6 +4,7 @@ import { LogOut, User, LogIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import TokenInfo from "@/components/TokenInfo";
+import BuyPrideCoins from "@/components/BuyPrideCoins";
 import WalletConnection from "@/components/WalletConnection";
 import RewardSystem from "@/components/RewardSystem";
 import Dashboard from "@/components/Dashboard";
@@ -49,6 +50,7 @@ const Index = () => {
 
       <Hero />
       <TokenInfo />
+      <BuyPrideCoins />
       <WalletConnection />
       <RewardSystem />
       <Dashboard />
