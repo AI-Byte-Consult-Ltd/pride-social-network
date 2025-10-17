@@ -14,6 +14,25 @@ const BuyPrideCoins = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [showPaymentDialog, setShowPaymentDialog] = useState(false);
 
+  // 💳 Здесь добавь реальные ссылки для каждой платформы
+  const paymentLinks = {
+    20: {
+      stripe: "https://buy.stripe.com/test_20usd_link",
+      paypal: "https://www.paypal.com/pay?amount=20",
+      coinbase: "https://commerce.coinbase.com/checkout/83c1716b-c032-4e52-b7b5-efbc01cd57b3",
+    },
+    50: {
+      stripe: "https://buy.stripe.com/test_50usd_link",
+      paypal: "https://www.paypal.com/pay?amount=50",
+      coinbase: "https://commerce.coinbase.com/checkout/147565e8-9550-490d-abc7-99f47097b1f2",
+    },
+    100: {
+      stripe: "https://buy.stripe.com/test_100usd_link",
+      paypal: "https://www.paypal.com/pay?amount=100",
+      coinbase: "https://commerce.coinbase.com/checkout/83c1716b-c032-4e52-b7b5-efbc01cd57b3",
+    },
+  };
+
   const amounts = [
     { value: 20, coins: "200" },
     { value: 50, coins: "500" },
@@ -26,8 +45,18 @@ const BuyPrideCoins = () => {
   };
 
   const handlePaymentMethod = (method: string) => {
-    console.log(`Processing payment: $${selectedAmount} via ${method}`);
-    // Payment integration will be implemented here
+    if (!selectedAmount) return;
+
+    const urls = paymentLinks[selectedAmount];
+    let link = "";
+
+    if (method === "Stripe") link = urls.stripe;
+    if (method === "PayPal") link = urls.paypal;
+    if (method === "Coinbase Commerce") link = urls.coinbase;
+
+    // 🔗 Открываем ссылку в новой вкладке
+    if (link) window.open(link, "_blank", "noopener,noreferrer");
+
     setShowPaymentDialog(false);
   };
 

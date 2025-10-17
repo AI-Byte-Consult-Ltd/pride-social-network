@@ -39,7 +39,7 @@ const Hero = () => {
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
               The first Web3 social network where inclusivity meets innovation. 
-              Earn PRIDE tokens for activity and be part of the revolution.
+              Earn PRIDE coins for activity and be part of the revolution.
             </p>
           </div>
 

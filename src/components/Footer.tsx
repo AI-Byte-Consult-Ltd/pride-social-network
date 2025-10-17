@@ -143,7 +143,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-muted/40">
           <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-4 md:mb-0">
-            <span>© 2024 Pride Social Network.</span>
+            <span>© 2019 - 2025 Pride Social Network.</span>
             <Heart className="h-4 w-4 text-pride-red" />
             <span>Made for inclusivity.</span>
           </div>
