@@ -60,7 +60,7 @@ const TokenInfo = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Earn PRIDE tokens for likes, posts, reposts and active community participation. 
+                  Earn PRIDE coins for likes, posts, reposts and active community participation. 
                   The more you engage, the more you earn.
                 </p>
               </CardContent>

@@ -90,7 +90,7 @@ const Dashboard = () => {
             Your <span className="bg-gradient-web3 bg-clip-text text-transparent">Dashboard</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Track your PRIDE token balance, transaction history and activity statistics.
+            Track your PRIDE coin balance, transaction history and activity statistics.
           </p>
         </div>
 
