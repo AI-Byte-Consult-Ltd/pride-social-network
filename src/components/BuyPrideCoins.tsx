@@ -17,7 +17,7 @@ const BuyPrideCoins = () => {
   // 💳 Здесь добавь реальные ссылки для каждой платформы
   const paymentLinks = {
     20: {
-      stripe: "https://buy.stripe.com/3cI28qezY7HufL74gZaVa0K",
+      stripe: "https://www.paypal.com/ncp/payment/9F48QUYZ5D42G",
       paypal: "https://www.paypal.com/pay?amount=20",
       coinbase: "https://commerce.coinbase.com/checkout/83c1716b-c032-4e52-b7b5-efbc01cd57b3",
     },
