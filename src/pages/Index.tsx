@@ -11,6 +11,7 @@ import Dashboard from "@/components/Dashboard";
 import FAQ from "@/components/FAQ";
 import JoinForm from "@/components/JoinForm";
 import Footer from "@/components/Footer";
+import { ShopPreview } from "@/components/ShopPreview";
 
 const Index = () => {
   const { user, signOut, loading } = useAuth();
@@ -29,10 +30,12 @@ const Index = () => {
       <div className="fixed top-4 right-4 z-50">
         {user ? (
           <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border rounded-lg p-2">
-            <div className="flex items-center gap-2 px-2">
-              <User className="h-4 w-4" />
-              <span className="text-sm font-medium">{user.email}</span>
-            </div>
+            <Link to="/profile">
+              <Button variant="ghost" size="sm">
+                <User className="h-4 w-4 mr-1" />
+                Profile
+              </Button>
+            </Link>
             <Button variant="outline" size="sm" onClick={signOut}>
               <LogOut className="h-4 w-4 mr-1" />
               Sign Out
@@ -54,6 +57,7 @@ const Index = () => {
       <WalletConnection />
       <RewardSystem />
       <Dashboard />
+      <ShopPreview />
       <FAQ />
       <JoinForm />
       <Footer />

@@ -28,7 +28,7 @@ const Auth = () => {
     return null;
   }
 
-  return <AuthForm onAuthSuccess={() => navigate("/")} />;
+  return <AuthForm onAuthSuccess={() => navigate("/profile")} />;
 };
 
 export default Auth;
