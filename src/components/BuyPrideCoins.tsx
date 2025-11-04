@@ -14,7 +14,6 @@ const BuyPrideCoins = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [showPaymentDialog, setShowPaymentDialog] = useState(false);
 
-  // 💳 Здесь добавь реальные ссылки для каждой платформы
   const paymentLinks = {
     20: {
       stripe: "https://buy.stripe.com/3cI28qezY7HufL74gZaVa0K",
@@ -54,9 +53,7 @@ const BuyPrideCoins = () => {
     if (method === "PayPal") link = urls.paypal;
     if (method === "Coinbase Commerce") link = urls.coinbase;
 
-    // 🔗 Открываем ссылку в новой вкладке
     if (link) window.open(link, "_blank", "noopener,noreferrer");
-
     setShowPaymentDialog(false);
   };
 
@@ -89,13 +86,13 @@ const BuyPrideCoins = () => {
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-foreground mb-1">
-                    ${amount.value}
+                    {amount.coins} PRIDE
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Get {amount.coins} PRIDE
+                    for ${amount.value}
                   </div>
                 </div>
-                <Button className="w-full" variant="pride">
+                <Button className="w-full text-black" variant="pride">
                   Buy Now
                 </Button>
               </div>
