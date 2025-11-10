@@ -1,16 +1,20 @@
-import { useEffect, useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { CreateTreeModal } from "@/components/tree/CreateTreeModal";
+import { useEffect, useState } from "react";
+import { TreeCanvas } from "@/components/tree/TreeCanvas";
+import { AddLeafModal } from "@/components/tree/AddLeafModal";
+import { useToast } from "@/hooks/use-toast";
 
-interface Tree {
+interface Leaf {
   id: string;
-  title: string;
-  type: "personal" | "joint";
-  level: number;
-  leavesCount: number;
-  fruitsCount: number;
-  ownerLevel?: number;
+  message: string;
+  x: number;
+  y: number;
+  color: string;
+  createdAt: string;
 }
+
+const prideColors = [
+  "#E40303", "#FF8C00", "#FFED00", "#008026", "#24408E", "#732982",
+];
 
 const levelTitles: Record<number, string> = {
   1: "Seedling 🌱",

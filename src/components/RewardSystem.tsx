@@ -4,15 +4,14 @@ import { Progress } from "@/components/ui/progress";
 import { Heart, MessageCircle, Repeat2, Share, Gift, Trophy } from "lucide-react";
 import web3Network from "@/assets/web3-network.jpg";
 
-const RewardSystem = () => {
-  const rewards = [
-    {
-      icon: Heart,
-      action: "Like Post",
-      amount: "0.1 PRIDE",
-      color: "pride-red",
-      description: "For each like of other users' content"
-    },
+export const rewardList = [
+  {
+    icon: Heart,
+    action: "Like Post",
+    amount: "0.1 PRIDE",
+    color: "pride-red",
+    description: "For each like of other users' content"
+  },
     {
       icon: MessageCircle,
       action: "Comment",
@@ -48,8 +47,9 @@ const RewardSystem = () => {
       color: "pride-yellow",
       description: "For special achievements and milestones"
     }
-  ];
+];
 
+const RewardSystem = () => {
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background */}
@@ -100,7 +100,7 @@ const RewardSystem = () => {
 
         {/* Rewards grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rewards.map((reward, index) => {
+          {rewardList.map((reward, index) => {
             const IconComponent = reward.icon;
             return (
               <Card 
