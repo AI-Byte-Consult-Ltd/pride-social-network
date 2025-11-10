@@ -18,7 +18,7 @@ const BuyPrideCoins = () => {
     20: {
       stripe: "https://buy.stripe.com/3cI28qezY7HufL74gZaVa0K",
       paypal: "https://www.paypal.com/ncp/payment/9F48QUYZ5D42G",
-      coinbase: "https://commerce.coinbase.com/checkout/83c1716b-c032-4e52-b7b5-efbc01cd57b3",
+      coinbase: "https://commerce.coinbase.com/checkout/ec1119d3-4f56-4d51-89cc-956af0b851db",
     },
     50: {
       stripe: "https://buy.stripe.com/eVq14m3Vk4vibuR9BjaVa0L",
@@ -33,9 +33,9 @@ const BuyPrideCoins = () => {
   };
 
   const amounts = [
-    { value: 20, coins: "200" },
-    { value: 50, coins: "500" },
-    { value: 100, coins: "1,000" },
+    { value: 20, coins: "23,000,000" },
+    { value: 50, coins: "56,000,000" },
+    { value: 100, coins: "112,000,000" },
   ];
 
   const handleAmountClick = (amount: number) => {

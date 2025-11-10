@@ -9,6 +9,9 @@ import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
+// ✅ добавляем Garden и будущие страницы деревьев
+import { Garden } from "./pages/Garden";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -22,6 +25,10 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/profile" element={<Profile />} />
+
+            {/* ✅ добавлен маршрут сада деревьев */}
+            <Route path="/garden" element={<Garden />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

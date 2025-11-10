@@ -1,6 +1,6 @@
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, LogIn } from "lucide-react";
+import { LogOut, User, LogIn, TreePalm } from "lucide-react";
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import TokenInfo from "@/components/TokenInfo";
@@ -30,12 +30,23 @@ const Index = () => {
       <div className="fixed top-4 right-4 z-50">
         {user ? (
           <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border rounded-lg p-2">
+            {/* Profile */}
             <Link to="/profile">
               <Button variant="ghost" size="sm">
                 <User className="h-4 w-4 mr-1" />
                 Profile
               </Button>
             </Link>
+
+            {/* ✅ Добавляем кнопку Garden */}
+            <Link to="/garden">
+              <Button variant="secondary" size="sm">
+                <TreePalm className="h-4 w-4 mr-1" />
+                My Garden
+              </Button>
+            </Link>
+
+            {/* Sign Out */}
             <Button variant="outline" size="sm" onClick={signOut}>
               <LogOut className="h-4 w-4 mr-1" />
               Sign Out
