@@ -24,208 +24,102 @@ const levelTitles: Record<number, string> = {
   5: "Tree Whisperer 🌳",
 };
 
-// Лимиты по уровням: Level 1 → 1 personal + 1 joint
-const levelLimits: Record<number, { personal: number; joint: number }> = {
-  1: { personal: 1, joint: 1 },
-  2: { personal: 2, joint: 1 },
-  3: { personal: 2, joint: 2 },
-  4: { personal: 3, joint: 3 },
-  5: { personal: 999, joint: 999 },
-};
-
-// Требования для апгрейда
-const upgradeRequirements: Record<number, { personal: number; joint: number } | null> = {
-  1: { personal: 1, joint: 1 },
-  2: { personal: 2, joint: 1 },
-  3: { personal: 2, joint: 2 },
-  4: { personal: 3, joint: 3 },
-  5: null,
-};
-
 export function Garden() {
-  const [trees, setTrees] = useState<Tree[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [leaves, setLeaves] = useState<Leaf[]>([]);
   const [userLevel, setUserLevel] = useState<number>(1);
-  const [error, setError] = useState<string | null>(null);
-  const [info, setInfo] = useState<string | null>(null);
-
-  // Подсчёт деревьев
-  const counts = useMemo(() => {
-    const personal = trees.filter((t) => t.type === "personal").length;
-    const joint = trees.filter((t) => t.type === "joint").length;
-    return { personal, joint };
-  }, [trees]);
+  const [selectedLeaf, setSelectedLeaf] = useState<Leaf | null>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
-    loadTrees();
+    const mockLeaves: Leaf[] = [
+      { id: "1", message: "Welcome to your Tree of Life! 🌳", x: 45, y: 35, color: prideColors[0], createdAt: new Date().toISOString() },
+      { id: "2", message: "Every message makes your tree grow stronger", x: 55, y: 40, color: prideColors[1], createdAt: new Date().toISOString() },
+      { id: "3", message: "Share love and watch it bloom", x: 50, y: 30, color: prideColors[2], createdAt: new Date().toISOString() },
+    ];
+    setLeaves(mockLeaves);
   }, []);
 
-  const loadTrees = async () => {
-    setError(null);
-    try {
-      const res = await fetch("https://n8n.nics.space/webhook/trees/mine");
-      const data = await res.json();
-      setTrees(Array.isArray(data?.trees) ? data.trees : []);
-    } catch (err) {
-      console.error("Failed to load trees:", err);
-      setError("Failed to load your garden. Please try again.");
-    } finally {
-      setLoading(false);
+  const addLeaf = (message: string) => {
+    const x = 30 + Math.random() * 40;
+    const y = 20 + Math.random() * 40;
+    const color = prideColors[Math.floor(Math.random() * prideColors.length)];
+    const newLeaf: Leaf = { id: Date.now().toString(), message, x, y, color, createdAt: new Date().toISOString() };
+    setLeaves((prev) => [...prev, newLeaf]);
+    toast({ title: "🍃 Leaf Added!", description: "Your message is now growing on your tree", duration: 3000 });
+    
+    if (leaves.length > 0 && (leaves.length + 1) % 5 === 0 && userLevel < 5) {
+      setTimeout(() => {
+        setUserLevel((prev) => prev + 1);
+        toast({ title: "🌳 Level Up!", description: `You've reached ${levelTitles[userLevel + 1]}`, duration: 5000 });
+      }, 1000);
     }
   };
 
-  const createTree = async (title: string, type: string) => {
-    setError(null);
-    setInfo(null);
-
-    // --- Проверка лимита на фронте ---
-    const limit = levelLimits[userLevel];
-    const current = counts[type as "personal" | "joint"];
-    if (current >= limit[type as "personal" | "joint"]) {
-      setError(
-        `You reached the limit for ${type === "joint" ? "Joint" : "Personal"} trees at Level ${userLevel}. Upgrade to unlock more.`
-      );
-      return;
-    }
-
-    try {
-      const res = await fetch("https://n8n.nics.space/webhook/trees/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title,
-          type,
-          userLevel,
-          counts, // отправляем текущие количества
-        }),
-      });
-
-      const data = await res.json();
-
-      if (data?.error) {
-        setError(data.error);
-        return;
-      }
-
-      if (data?.tree) {
-        setTrees((prev) => [...prev, data.tree]);
-        setInfo(`${data.tree.type === "joint" ? "Joint" : "Personal"} tree “${data.tree.title}” planted successfully!`);
-      } else {
-        setError("Unexpected response from server.");
-      }
-    } catch (err) {
-      console.error("Error creating tree:", err);
-      setError("Something went wrong while creating your tree.");
-    }
-  };
-
-  // Проверка, можно ли апгрейдиться
-  const canUpgrade = () => {
-    const req = upgradeRequirements[userLevel];
-    if (!req) return false;
-    return counts.personal >= req.personal && counts.joint >= req.joint;
-  };
-
-  const upgradeLevel = () => {
-    setError(null);
-    setInfo(null);
-
-    if (userLevel >= 5) {
-      setError("You have reached the maximum level (Tree Whisperer).");
-      return;
-    }
-
-    if (!canUpgrade()) {
-      const req = upgradeRequirements[userLevel]!;
-      setError(
-        `To upgrade to Level ${userLevel + 1}, you need at least ${req.personal} personal and ${req.joint} joint tree(s). 
-         You currently have ${counts.personal} personal and ${counts.joint} joint.`
-      );
-      return;
-    }
-
-    setUserLevel((prev) => prev + 1);
-    setInfo(`Congrats! You've reached Level ${userLevel + 1}: ${levelTitles[userLevel + 1]}`);
-  };
-
-  if (loading)
-    return (
-      <div className="min-h-screen flex items-center justify-center text-white">
-        Loading your garden...
-      </div>
-    );
+  const treeLevel = Math.min(5, Math.floor(leaves.length / 5) + 1);
+  const fruitsCount = Math.floor(leaves.length / 10);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] text-white px-6 py-10">
-      <div className="max-w-5xl mx-auto">
-        {/* HEADER */}
-        <h1 className="text-4xl font-bold mb-3 text-center bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
-          🌈 Your Garden
-        </h1>
-
-        <div className="text-center mb-6">
-          <h2 className="text-xl font-semibold mb-1">
-            Level {userLevel}: {levelTitles[userLevel]}
-          </h2>
-          <p className="text-white/70">
-            {userLevel < 5
-              ? `Unlock more trees as you grow — reach ${levelTitles[userLevel + 1]} to expand your garden.`
-              : "You’ve reached the ultimate rank — Tree Whisperer!"}
-          </p>
-          <Button
-            variant="outline"
-            onClick={upgradeLevel}
-            className="mt-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white border-none hover:scale-105 transition-transform"
-          >
-            Upgrade Level
-          </Button>
-        </div>
-
-        {/* MESSAGES */}
-        {error && (
-          <div className="mb-4 text-center text-red-300 bg-red-900/30 p-3 rounded-md border border-red-700/40">
-            {error}
+    <div className="min-h-screen bg-gradient-to-b from-[#0a0014] via-[#1a0a2e] to-[#0f0520] text-white overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl animate-pulse" />
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-10">
+        <div className="text-center mb-8">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-pink-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
+            🌳 Your Tree of Life
+          </h1>
+          <p className="text-lg text-white/70 mb-6">Level {userLevel}: {levelTitles[userLevel]}</p>
+          
+          <div className="flex justify-center gap-8 mb-8">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl px-6 py-3 border border-white/20">
+              <div className="text-2xl font-bold text-green-400">{leaves.length}</div>
+              <div className="text-sm text-white/60">🌿 Leaves</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl px-6 py-3 border border-white/20">
+              <div className="text-2xl font-bold text-red-400">{fruitsCount}</div>
+              <div className="text-sm text-white/60">🍎 Fruits</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl px-6 py-3 border border-white/20">
+              <div className="text-2xl font-bold text-purple-400">{treeLevel}</div>
+              <div className="text-sm text-white/60">🌳 Tree Level</div>
+            </div>
           </div>
-        )}
-        {info && (
-          <div className="mb-4 text-center text-green-300 bg-green-900/30 p-3 rounded-md border border-green-700/40">
-            {info}
-          </div>
-        )}
-
-        {/* COUNTERS */}
-        <div className="mb-6 text-center text-white/70">
-          <span className="mx-2">Personal: {counts.personal}</span>
-          <span className="mx-2">Joint: {counts.joint}</span>
         </div>
-
-        {/* TREE CARDS */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-          {trees.length > 0 ? (
-            trees.map((tree) => (
-              <div
-                key={tree.id}
-                className="p-5 rounded-xl border border-white/10 bg-card hover:bg-white/5 transition-all duration-200"
-              >
-                <h3 className="text-lg font-semibold mb-1">{tree.title}</h3>
-                <p className="text-sm text-white/60 mb-2">
-                  {tree.type === "joint" ? "Joint Tree 🤝" : "Personal Tree 🌱"}
-                </p>
-                <div className="flex gap-4 text-sm text-white/70">
-                  <span>🌿 {tree.leavesCount}</span>
-                  <span>🍎 {tree.fruitsCount}</span>
-                  <span>Lvl {tree.level}</span>
-                </div>
+        
+        <div className="mb-8">
+          <TreeCanvas leaves={leaves} onLeafClick={setSelectedLeaf} />
+        </div>
+        
+        <div className="text-center mb-8">
+          <AddLeafModal onAddLeaf={addLeaf} />
+        </div>
+        
+        {selectedLeaf && (
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50" onClick={() => setSelectedLeaf(null)}>
+            <div className="bg-gradient-to-br from-card/95 to-muted/95 backdrop-blur-xl p-8 rounded-2xl max-w-md border border-white/20 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+              <div className="text-center mb-4">
+                <div className="text-6xl mb-4">🍃</div>
+                <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Leaf Message</h3>
               </div>
-            ))
-          ) : (
-            <p className="text-center text-white/50">No trees yet. Plant your first one!</p>
-          )}
-        </div>
-
-        {/* CREATE BUTTON */}
-        <div className="text-center">
-          <CreateTreeModal onCreate={createTree} userLevel={userLevel} />
+              <p className="text-white text-center mb-6 text-lg">{selectedLeaf.message}</p>
+              <div className="text-center text-sm text-white/50">Created: {new Date(selectedLeaf.createdAt).toLocaleString()}</div>
+            </div>
+          </div>
+        )}
+        
+        <div className="max-w-2xl mx-auto mt-12 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+          <h2 className="text-2xl font-bold mb-4 text-center bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+            How Your Tree Grows
+          </h2>
+          <div className="space-y-3 text-white/70">
+            <p>🍃 <strong>Add leaves</strong> by sharing your thoughts and messages</p>
+            <p>🌳 <strong>Level up</strong> your tree every 5 leaves</p>
+            <p>🍎 <strong>Earn fruits</strong> as rewards for growing your tree</p>
+            <p>✨ <strong>Watch</strong> your tree breathe and glow with life</p>
+            <p>💚 Each leaf costs <strong>1 PRIDE token</strong> to grow</p>
+          </div>
         </div>
       </div>
     </div>
