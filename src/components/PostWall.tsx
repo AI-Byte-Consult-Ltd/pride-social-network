@@ -57,16 +57,9 @@ export const PostWall = ({ onBalanceChange }: PostWallProps) => {
   }, []);
 
   const fetchPosts = async () => {
-    const { data, error } = await supabase
+    const { data: postsData, error } = await supabase
       .from("posts")
-      .select(`
-        *,
-        profiles!posts_user_id_fkey (
-          first_name,
-          last_name,
-          email
-        )
-      `)
+      .select("*")
       .order("created_at", { ascending: false });
 
     if (error) {
@@ -74,7 +67,28 @@ export const PostWall = ({ onBalanceChange }: PostWallProps) => {
       return;
     }
 
-    setPosts(data as any || []);
+    if (!postsData || postsData.length === 0) {
+      setPosts([]);
+      return;
+    }
+
+    // Fetch profiles for all post authors
+    const userIds = [...new Set(postsData.map(p => p.user_id))];
+    const { data: profilesData } = await supabase
+      .from("profiles")
+      .select("id, first_name, last_name, email")
+      .in("id", userIds);
+
+    const profilesMap = new Map(
+      (profilesData || []).map(p => [p.id, p])
+    );
+
+    const postsWithProfiles: Post[] = postsData.map(post => ({
+      ...post,
+      profiles: profilesMap.get(post.user_id) || undefined
+    }));
+
+    setPosts(postsWithProfiles);
   };
 
   const handleCreatePost = async () => {
